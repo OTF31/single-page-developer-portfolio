@@ -1,0 +1,14 @@
+.root {
+  --button-bg: transparent;
+  --button-radius: 0;
+  --button-color: white;
+  --button-padding-x: 0;
+  --button-fz: rem(16px);
+  --button-hover: transparent;
+  border-bottom: 2px solid var(--mantine-color-mintJelly-6);
+  letter-spacing: 2.3px;
+
+  &:hover {
+    color: var(--mantine-color-mintJelly-6);
+  }
+}
