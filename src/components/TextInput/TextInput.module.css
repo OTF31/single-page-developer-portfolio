@@ -1,0 +1,31 @@
+.input {
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  border-radius: 0;
+  padding-bottom: rem(15px);
+  padding-left: rem(24px);
+  color: white;
+  font-weight: 500;
+  font-size: rem(16px);
+  height: rem(42px);
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+
+  &:focus-within {
+    border-bottom: 1px solid var(--mantine-color-mintJelly-6);
+  }
+
+  &[data-error] {
+    border-bottom: 1px solid #ff6f5b;
+  }
+}
+
+.error {
+  text-align: right;
+  color: #ff6f5b;
+  font-size: rem(16px);
+  font-weight: 500;
+}
