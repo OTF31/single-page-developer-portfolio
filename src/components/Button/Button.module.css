@@ -7,6 +7,7 @@
   --button-hover: transparent;
   border-bottom: 2px solid var(--mantine-color-mintJelly-6);
   letter-spacing: 2.3px;
+  padding-bottom: 10px;
 
   &:hover {
     color: var(--mantine-color-mintJelly-6);
