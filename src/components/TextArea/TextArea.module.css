@@ -8,7 +8,6 @@
   color: white;
   font-weight: 500;
   font-size: rem(16px);
-  height: rem(42px);
 
   &::placeholder {
     opacity: 0.5;
