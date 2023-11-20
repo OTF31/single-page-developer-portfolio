@@ -9,7 +9,7 @@
   letter-spacing: 2.3px;
   padding-bottom: 10px;
 
-  &:hover {
+  @mixin hover {
     color: var(--mantine-color-mintJelly-6);
   }
 }
