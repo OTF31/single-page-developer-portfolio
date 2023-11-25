@@ -22,6 +22,20 @@
   }
 }
 
+.wrapper {
+  &[data-error] {
+    & .section[data-position='right'] {
+      display: inline-flex;
+    }
+  }
+}
+
+.section {
+  &[data-position='right'] {
+    display: none;
+  }
+}
+
 .error {
   text-align: right;
   color: #ff6f5b;

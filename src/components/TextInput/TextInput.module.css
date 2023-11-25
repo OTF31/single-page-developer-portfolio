@@ -19,7 +19,25 @@
   }
 
   &[data-error] {
-    border-bottom: 1px solid #ff6f5b;
+    border-bottom: 1px solid #b7aaa8;
+
+    & .section[data-position='right'] {
+      display: none;
+    }
+  }
+}
+
+.wrapper {
+  &[data-error] {
+    & .section[data-position='right'] {
+      display: inline-flex;
+    }
+  }
+}
+
+.section {
+  &[data-position='right'] {
+    display: none;
   }
 }
 
