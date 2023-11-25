@@ -199,7 +199,7 @@ const Home = () => {
               Based in the UK, I&apos;m a front-end developer passionate about building
               accessible web apps that users love.
             </Text>
-            <Button>CONTACT ME</Button>
+            <Button mt={{ xl: 40 }}>CONTACT ME</Button>
             <Image
               component={NextImage}
               src={patternRings}
