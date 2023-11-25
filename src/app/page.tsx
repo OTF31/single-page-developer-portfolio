@@ -6,10 +6,10 @@ import {
   Flex,
   Group,
   Image,
+  SimpleGrid,
   Stack,
   Text,
   Title,
-  SimpleGrid,
 } from '@mantine/core'
 import NextImage from 'next/image'
 
@@ -17,8 +17,8 @@ import iconFrontendMentor from '@/assets/images/icon-frontend-mentor.svg'
 import iconGithub from '@/assets/images/icon-github.svg'
 import iconLinkedin from '@/assets/images/icon-linkedin.svg'
 import iconTwitter from '@/assets/images/icon-twitter.svg'
-import imageProfileMobile from '@/assets/images/image-profile-mobile.webp'
 import imageProfileDesktop from '@/assets/images/image-profile-desktop.webp'
+import imageProfileMobile from '@/assets/images/image-profile-mobile.webp'
 import patternCircle from '@/assets/images/pattern-circle.svg'
 import patternRings from '@/assets/images/pattern-rings.svg'
 import thumbnailProject1Large from '@/assets/images/thumbnail-project-1-large.webp'
@@ -86,55 +86,82 @@ const PROJECTS = [
   },
 ]
 
+const Author = () => {
+  return (
+    <>
+      <Stack className={classes.author__content}>
+        <Text className={classes.author__name}>adamkeyes</Text>
+        <Group className={classes['author__social-container']}>
+          <Image
+            className={classes['icon']}
+            component={NextImage}
+            src={iconGithub}
+            alt='github'
+          />
+          <Image
+            className={classes['icon']}
+            component={NextImage}
+            src={iconFrontendMentor}
+            alt='frontend mentor'
+          />
+          <Image
+            className={classes['icon']}
+            component={NextImage}
+            src={iconLinkedin}
+            alt='linkedin'
+          />
+          <Image
+            className={classes['icon']}
+            component={NextImage}
+            src={iconTwitter}
+            alt='twitter'
+          />
+        </Group>
+      </Stack>
+      <Image
+        component={NextImage}
+        src={patternCircle}
+        w={129}
+        pos='absolute'
+        visibleFrom='sm'
+        hiddenFrom='xl'
+        bottom={0}
+        right={-60}
+        alt='pattern-circle'
+      />
+      <Image
+        component={NextImage}
+        src={patternCircle}
+        w={129}
+        pos='absolute'
+        visibleFrom='xl'
+        bottom={70}
+        left={-60}
+        alt='pattern-circle'
+      />
+    </>
+  )
+}
+
 const Home = () => {
   return (
     <AppShell>
       <AppShellMain className={classes.main}>
-        <Flex direction={{ base: 'column', sm: 'row-reverse' }} gap={0}>
+        <Flex direction={{ base: 'column', sm: 'row-reverse' }} justify='center' gap={0}>
           <Box className={classes.author__container}>
             <BackgroundImage
-              src={imageProfileMobile.src}
+              src={imageProfileDesktop.src}
+              visibleFrom='xl'
               className={classes.author__background}
             >
-              <Stack className={classes.author__content}>
-                <Text className={classes.author__name}>adamkeyes</Text>
-                <Group className={classes['author__social-container']}>
-                  <Image
-                    component={NextImage}
-                    src={iconGithub}
-                    w={{ sm: 24 }}
-                    alt='github'
-                  />
-                  <Image
-                    component={NextImage}
-                    src={iconFrontendMentor}
-                    w={{ sm: 24 }}
-                    alt='frontend mentor'
-                  />
-                  <Image
-                    component={NextImage}
-                    src={iconLinkedin}
-                    w={{ sm: 24 }}
-                    alt='linkedin'
-                  />
-                  <Image
-                    component={NextImage}
-                    src={iconTwitter}
-                    w={{ sm: 24 }}
-                    alt='twitter'
-                  />
-                </Group>
-              </Stack>
-              <Image
-                component={NextImage}
-                src={patternCircle}
-                w={129}
-                pos='absolute'
-                visibleFrom='sm'
-                bottom={0}
-                right={-60}
-                alt='pattern-circle'
-              />
+              <Author />
+            </BackgroundImage>
+            <BackgroundImage
+              src={imageProfileMobile.src}
+              hiddenFrom='xl'
+              className={classes.author__background}
+            >
+              <Author />
             </BackgroundImage>
             <Image
               component={NextImage}
@@ -168,7 +195,7 @@ const Home = () => {
               </Text>
               .
             </Text>
-            <Text mt={{ sm: 60 }}>
+            <Text mt={{ sm: 60 }} maw={{ xl: 445 }}>
               Based in the UK, I&apos;m a front-end developer passionate about building
               accessible web apps that users love.
             </Text>
@@ -189,7 +216,7 @@ const Home = () => {
         <Box className={classes.skills__container}>
           <SimpleGrid
             className={classes['skills__content-container']}
-            cols={{ base: 1, sm: 2 }}
+            cols={{ base: 1, sm: 2, xl: 3 }}
           >
             {SKILLS.map((skill, index) => (
               <Stack key={index} className={classes['skills__item-container']}>
@@ -227,7 +254,7 @@ const Home = () => {
           </Group>
           <SimpleGrid
             cols={{ base: 1, sm: 2 }}
-            spacing={{ base: 40, sm: 22 }}
+            spacing={{ base: 40, sm: 22, xl: 25 }}
             verticalSpacing={{ base: 40, sm: 60 }}
           >
             {PROJECTS.map((project, index) => (
@@ -235,8 +262,22 @@ const Home = () => {
                 <Image
                   src={project.thumbailSmall}
                   component={NextImage}
+                  hiddenFrom='xl'
                   alt='thumbnail'
                 />
+                <Image
+                  className={classes['projects__item-thumbnail']}
+                  src={project.thumbailLarge}
+                  component={NextImage}
+                  visibleFrom='xl'
+                  alt='thumbnail'
+                />
+                <Box className={classes['projects__item-background']}>
+                  <Stack gap={48}>
+                    <Button>VIEW PROJECT</Button>
+                    <Button>VIEW CODE</Button>
+                  </Stack>
+                </Box>
                 <Stack className={classes['projects__item-text-container']}>
                   <Text className={classes['projects__item-title']}>{project.title}</Text>
                   <Group className={classes['projects__item-topics-container']}>
@@ -257,7 +298,10 @@ const Home = () => {
         </Stack>
 
         <Stack className={classes['contact__container']}>
-          <Stack className={classes['contact__form-container']}>
+          <Flex
+            direction={{ base: 'column', xl: 'row' }}
+            className={classes['contact__form-container']}
+          >
             <Stack className={classes['contact__form-text-container']}>
               <Text className={classes['contact__form-title']}>Contact</Text>
               <Text c='orochimaru'>
@@ -266,33 +310,38 @@ const Home = () => {
               </Text>
             </Stack>
             <Stack className={classes['contact__form-inputs-container']}>
-              <TextInput placeholder='NAME' error='Sorry, invalid format here' />
+              <TextInput placeholder='NAME' />
               <TextInput placeholder='EMAIL' />
               <TextArea placeholder='MESSAGE' />
               <Button className={classes['contact__form-submit']}>SEND MESSAGE</Button>
             </Stack>
-          </Stack>
+          </Flex>
           <Box className={classes['contact__divider']} />
           <Flex className={classes['contact__social-container']}>
             <Text className={classes['contact__author-name']}>adamkeyes</Text>
             <Group className={classes['contact__social-icons-container']}>
-              <Image component={NextImage} src={iconGithub} w={{ sm: 24 }} alt='github' />
               <Image
+                className={classes['icon']}
+                component={NextImage}
+                src={iconGithub}
+                alt='github'
+              />
+              <Image
+                className={classes['icon']}
                 component={NextImage}
                 src={iconFrontendMentor}
-                w={{ sm: 24 }}
                 alt='frontend mentor'
               />
               <Image
+                className={classes['icon']}
                 component={NextImage}
                 src={iconLinkedin}
-                w={{ sm: 24 }}
                 alt='linkedin'
               />
               <Image
+                className={classes['icon']}
                 component={NextImage}
                 src={iconTwitter}
-                w={{ sm: 24 }}
                 alt='twitter'
               />
             </Group>

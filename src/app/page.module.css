@@ -8,12 +8,12 @@
     position: relative;
     overflow: hidden;
 
-    @media (min-width: $mantine-breakpoint-sm) {
-      overflow: visible;
-    }
-
     p {
       color: var(--mantine-color-white);
+    }
+
+    @media (min-width: $mantine-breakpoint-sm) {
+      overflow: visible;
     }
   }
 
@@ -33,6 +33,12 @@
       padding-right: 30px;
       overflow: hidden;
       position: relative;
+    }
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      margin-right: 165px;
+      min-width: 445px;
+      height: 720px;
     }
   }
 
@@ -65,6 +71,10 @@
         margin-left: 0;
         margin-top: -20px;
       }
+
+      @media (min-width: $mantine-breakpoint-xl) {
+        font-size: rem(32px) !important;
+      }
     }
   }
 
@@ -88,6 +98,11 @@
       padding-left: 32px;
       margin-right: -40px;
       overflow: visible;
+    }
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      margin-right: 0px;
+      padding-left: 165px;
     }
 
     p {
@@ -139,6 +154,11 @@
       padding: 52px 0;
       margin: 0 32px;
     }
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      padding: 72px 0;
+      margin: 0 165px;
+    }
   }
 
   &__item {
@@ -154,6 +174,10 @@
 
           font-size: rem(18px);
         }
+      }
+
+      @media (min-width: $mantine-breakpoint-xl) {
+        gap: 14px;
       }
     }
 
@@ -175,6 +199,10 @@
     margin: 0 16px;
     margin-top: 80px;
     gap: 40px;
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      margin: 0 165px;
+    }
   }
 
   &__header {
@@ -191,11 +219,37 @@
       @media (min-width: $mantine-breakpoint-sm) {
         font-size: rem(72px) !important;
       }
+
+      @media (min-width: $mantine-breakpoint-xl) {
+        font-size: rem(88px) !important;
+      }
     }
   }
 
   &__item-container {
     gap: 20px;
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      position: relative;
+
+      @mixin hover {
+        .projects__item-background {
+          cursor: pointer;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          inset: 0;
+          bottom: 93px;
+          background-color: #000;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  &__item-background {
+    display: none;
   }
 
   &__item-text-container {
@@ -221,6 +275,11 @@
 
   &__item-actions-container {
     gap: 30px;
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      gap: 40px;
+      display: none;
+    }
   }
 }
 
@@ -242,7 +301,13 @@
 
     @media (min-width: $mantine-breakpoint-sm) {
       margin: 0 auto;
-      max-width: 445px;
+      width: 445px;
+    }
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      width: auto;
+      margin: 0 165px;
+      gap: 220px;
     }
   }
 
@@ -256,6 +321,14 @@
       @media (min-width: $mantine-breakpoint-sm) {
         font-size: rem(18px);
       }
+
+      @media (min-width: $mantine-breakpoint-xl) {
+        text-align: left;
+      }
+    }
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      flex-basis: 50%;
     }
   }
 
@@ -270,6 +343,10 @@
 
   &__form-inputs-container {
     gap: 32px;
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      flex-basis: 50%;
+    }
   }
 
   &__form-submit {
@@ -287,6 +364,12 @@
       margin-top: 90px;
       margin-bottom: 30px;
     }
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      margin: 0 165px;
+      margin-top: 90px;
+      margin-bottom: 50px;
+    }
   }
 
   &__social-container {
@@ -298,6 +381,10 @@
       flex-direction: row;
       justify-content: space-between;
       margin: 0 32px;
+    }
+
+    @media (min-width: $mantine-breakpoint-xl) {
+      margin: 0 165px;
     }
   }
 
@@ -314,5 +401,19 @@
 
   &__social-icons-container {
     justify-content: center;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+
+  @media (min-width: $mantine-breakpoint-xl) {
+    width: 24px;
+    height: 24px;
+  }
+
+  @mixin hover {
+    cursor: pointer;
   }
 }
