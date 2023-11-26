@@ -341,18 +341,6 @@
     }
   }
 
-  &__form-inputs-container {
-    gap: 32px;
-
-    @media (min-width: $mantine-breakpoint-xl) {
-      flex-basis: 50%;
-    }
-  }
-
-  &__form-submit {
-    align-self: flex-end;
-  }
-
   &__divider {
     margin: 0 16px;
     margin-top: 85px;
