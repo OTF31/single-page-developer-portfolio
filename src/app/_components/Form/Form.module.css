@@ -1,0 +1,11 @@
+.container {
+  gap: 32px;
+
+  @media (min-width: $mantine-breakpoint-xl) {
+    flex-basis: 50%;
+  }
+}
+
+.button-submit {
+  align-self: flex-end;
+}

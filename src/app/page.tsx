@@ -34,8 +34,7 @@ import thumbnailProject5Small from '@/assets/images/thumbnail-project-5-small.we
 import thumbnailProject6Large from '@/assets/images/thumbnail-project-6-large.webp'
 import thumbnailProject6Small from '@/assets/images/thumbnail-project-6-small.webp'
 import Button from '@/components/Button'
-import TextArea from '@/components/TextArea'
-import TextInput from '@/components/TextInput'
+import Form from './_components/Form'
 import classes from './page.module.css'
 
 const SKILLS = [
@@ -309,12 +308,7 @@ const Home = () => {
                 in the form, and I&apos;ll get back to you as soon as possible.
               </Text>
             </Stack>
-            <Stack className={classes['contact__form-inputs-container']}>
-              <TextInput placeholder='NAME' />
-              <TextInput placeholder='EMAIL' />
-              <TextArea placeholder='MESSAGE' />
-              <Button className={classes['contact__form-submit']}>SEND MESSAGE</Button>
-            </Stack>
+            <Form />
           </Flex>
           <Box className={classes['contact__divider']} />
           <Flex className={classes['contact__social-container']}>
